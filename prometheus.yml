@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 15s  # Set the scrape interval
+
+scrape_configs:
+  # Existing job for Prometheus itself
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # New job for Node Exporter
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']  # Replace 'localhost' with the service name
